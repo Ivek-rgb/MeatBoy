@@ -17,10 +17,12 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
+            
             Destroy(gameObject);
             return; 
         }
-
+        
+        
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
@@ -34,8 +36,6 @@ public class GameManager : MonoBehaviour
         }
         
         onLivesChanged?.Invoke(lives);
-        
-        Debug.Log($"Change made, reamining lives: {lives}");
 
     }
 
@@ -45,11 +45,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -60,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+        OnPlayerTakeDamage(0); 
     }
 
 }

@@ -1,34 +1,40 @@
 fileFormatVersion: 2
-guid: 56600188cd10e79459365aa312903099
+guid: 1b3b776923fae3b41b808b2c5b453863
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8766173731508570436
-    second: blood-effects_0
+      213: 3382373700606424769
+    second: ui_sprites_0
   - first:
-      213: -8650752604686706550
-    second: blood-effects_1
+      213: 1557759945179819784
+    second: ui_sprites_1
   - first:
-      213: 4664134819712499555
-    second: blood-effects_2
+      213: -9209634972083854483
+    second: ui_sprites_2
   - first:
-      213: -631608577258440294
-    second: blood-effects_3
+      213: 1803501121521088656
+    second: ui_sprites_3
   - first:
-      213: -3591531221522270989
-    second: blood-effects_4
+      213: 4883671998760618603
+    second: ui_sprites_4
   - first:
-      213: 1975836923713730770
-    second: blood-effects_5
+      213: 5029476521150034980
+    second: ui_sprites_5
   - first:
-      213: -6475528847267253679
-    second: blood-effects_6
+      213: -445191411227290239
+    second: ui_sprites_6
   - first:
-      213: -5641673879796329001
-    second: blood-effects_7
+      213: -4151870218921938820
+    second: ui_sprites_7
   - first:
-      213: 5797184878572435071
-    second: blood-effects_8
+      213: 7889821119787817187
+    second: ui_sprites_8
+  - first:
+      213: -5131055648839107104
+    second: ui_sprites_9
+  - first:
+      213: -3891756043676943183
+    second: ui_sprites_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -124,199 +130,243 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blood-effects_0
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 54
-        width: 27
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cb63216bf6b485680800000000000000
-      internalID: -8766173731508570436
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blood-effects_1
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 51
-        width: 12
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a881dd5f65a52f780800000000000000
-      internalID: -8650752604686706550
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blood-effects_2
-      rect:
-        serializedVersion: 2
-        x: 129
-        y: 54
-        width: 11
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 36f7e7928e55ab040800000000000000
-      internalID: 4664134819712499555
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blood-effects_3
+      name: heart
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
-        width: 17
-        height: 25
+        y: 119
+        width: 64
+        height: 95
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a99bb6b68531c37f0800000000000000
-      internalID: -631608577258440294
+      spriteID: 1c6f44ac5fa90fe20800000000000000
+      internalID: 3382373700606424769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blood-effects_4
+      name: times
       rect:
         serializedVersion: 2
-        x: 47
-        y: 30
-        width: 26
-        height: 23
+        x: 95
+        y: 119
+        width: 70
+        height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3f4b07df161582ec0800000000000000
-      internalID: -3591531221522270989
+      spriteID: 80f66c1ba664e9510800000000000000
+      internalID: 1557759945179819784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blood-effects_5
+      name: sprite_1
       rect:
         serializedVersion: 2
-        x: 98
-        y: 23
-        width: 10
-        height: 10
+        x: 188
+        y: 120
+        width: 38
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d8be04b6359b6b10800000000000000
-      internalID: 1975836923713730770
+      spriteID: d636de1a9cdc03080800000000000000
+      internalID: -9209634972083854483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blood-effects_6
+      name: sprite_2
       rect:
         serializedVersion: 2
-        x: 126
-        y: 20
-        width: 12
-        height: 12
+        x: 253
+        y: 120
+        width: 51
+        height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15237dd72dc4226a0800000000000000
-      internalID: -6475528847267253679
+      spriteID: 0987844f6b2570910800000000000000
+      internalID: 1803501121521088656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blood-effects_7
+      name: sprite_3
       rect:
         serializedVersion: 2
-        x: 84
+        x: 323
+        y: 121
+        width: 39
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6a06addec946c340800000000000000
+      internalID: 4883671998760618603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_4
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 110
+        width: 41
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 424b059af3a4cc540800000000000000
+      internalID: 5029476521150034980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_5
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 11
+        width: 38
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1851ebc25cc52d9f0800000000000000
+      internalID: -445191411227290239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_6
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 2
+        width: 51
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7072af88089166c0800000000000000
+      internalID: -4151870218921938820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_7
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 4
+        width: 64
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e8d352a1864e7d60800000000000000
+      internalID: 7889821119787817187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_8
+      rect:
+        serializedVersion: 2
+        x: 238
         y: 0
-        width: 12
-        height: 13
+        width: 49
+        height: 83
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7d5d3284f7fb4b1b0800000000000000
-      internalID: -5641673879796329001
+      spriteID: 0edfe28a214dac8b0800000000000000
+      internalID: -5131055648839107104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blood-effects_8
+      name: sprite_9
       rect:
         serializedVersion: 2
-        x: 111
+        x: 314
         y: 0
-        width: 15
-        height: 13
+        width: 36
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f767398aeecb37050800000000000000
-      internalID: 5797184878572435071
+      spriteID: 1bcf7286f74bdf9c0800000000000000
+      internalID: -3891756043676943183
       vertices: []
       indices: 
       edges: []
@@ -325,7 +375,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fb43f74cce421ee41ab0dd68c5df4105
     internalID: 0
     vertices: []
     indices: 
@@ -334,7 +384,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      heart: 3382373700606424769
+      sprite_1: -9209634972083854483
+      sprite_2: 1803501121521088656
+      sprite_3: 4883671998760618603
+      sprite_4: 5029476521150034980
+      sprite_5: -445191411227290239
+      sprite_6: -4151870218921938820
+      sprite_7: 7889821119787817187
+      sprite_8: -5131055648839107104
+      sprite_9: -3891756043676943183
+      times: 1557759945179819784
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

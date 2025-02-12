@@ -1631,8 +1631,9 @@ GameObject:
   - component: {fileID: 833301918}
   - component: {fileID: 833301920}
   - component: {fileID: 833301919}
+  - component: {fileID: 833301921}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1695,6 +1696,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833301917}
   m_CullTransparentMesh: 1
+--- !u!114 &833301921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833301917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c537521b8057e4f49b86f948b58cc1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartPulseController: {fileID: 0}
+  timesLivesSpriteHandler: {fileID: 0}
+  numberLivesCounter: {fileID: 0}
 --- !u!1 &882991385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,6 +1810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 925884720}
+  - component: {fileID: 925884721}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1816,6 +1833,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &925884721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925884719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9d9baf6d245094c8269f2501d242c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 628529317}
+  mainLevelCamera: {fileID: 766106685}
+  lives: 3
+  onLivesChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &947318060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1827,6 +1862,7 @@ GameObject:
   - component: {fileID: 947318061}
   - component: {fileID: 947318063}
   - component: {fileID: 947318062}
+  - component: {fileID: 947318064}
   m_Layer: 5
   m_Name: LivesBox
   m_TagString: Untagged
@@ -1891,6 +1927,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947318060}
   m_CullTransparentMesh: 1
+--- !u!114 &947318064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947318060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c537521b8057e4f49b86f948b58cc1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartPulseController: {fileID: 882991389}
+  timesLivesSpriteHandler: {fileID: 2048382554}
+  numberLivesCounter: {fileID: 833301919}
 --- !u!1 &1032384504
 GameObject:
   m_ObjectHideFlags: 0
