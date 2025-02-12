@@ -62,23 +62,16 @@ public class LivesUIController : MonoBehaviour
         }
         else
         {
-            heartPulseController.pulseSpeed = 20f;
+            heartPulseController.pulseSpeed = 40f;
         }
     }
 
     private void HandleLivesChangeText(int newLives)
     {
         if (numberLivesCounter == null)
-            return; 
-            
-        Debug.Log(_numberSpriteDictionary[$"sprite_{newLives}"] + $"    $sprite_{newLives}");
-        numberLivesCounter.sprite = _numberSpriteDictionary[$"sprite_{newLives}"]; 
+            return;
+        numberLivesCounter.sprite = _numberSpriteDictionary[$"{(newLives > 0 ? "sprite_" + newLives : "times")}"]; 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     
 }

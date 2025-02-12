@@ -51,6 +51,7 @@
     <Compile Include="Assets\Scripts\UIScripts\LivesUIController.cs" />
     <Compile Include="Assets\Scripts\Utils\CameraFollowBehaviour.cs" />
     <Compile Include="Assets\Scripts\Utils\HeartPulse.cs" />
+    <Compile Include="Assets\Scripts\Environment\HurtTrigger.cs" />
     <Compile Include="Assets\Scripts\Game manager\GameManager.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.35f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
