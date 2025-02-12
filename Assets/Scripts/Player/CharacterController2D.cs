@@ -70,8 +70,6 @@ namespace Player
             _bodySpringJoints = parentBody.GetComponentsInChildren<SpringJoint2D>();
             _spriteRenderers = parentBody.GetComponentsInChildren<SpriteRenderer>();
 
-            Debug.Log(_spriteRenderers.Length);
-            
             foreach (SpriteRenderer spr in _spriteRenderers)
             {
                 _normalSpriteColors.Add(spr.color);
@@ -187,5 +185,14 @@ namespace Player
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(hurtTrigger.position, hurtTriggerRadius);
         }
+
+        public void DestroyWholePlayer()
+        {
+            var grandParentObject = transform.parent.parent.gameObject; 
+            Debug.Log(grandParentObject);
+            Destroy(grandParentObject);
+        }
+
+
     }
 }

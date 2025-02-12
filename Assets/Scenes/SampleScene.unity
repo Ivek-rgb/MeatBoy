@@ -1113,8 +1113,8 @@ MonoBehaviour:
   trailRenderer: {fileID: 628529318}
   hurtTrigger: {fileID: 1839138460}
   hurtTriggerRadius: 0.45
-  invincibilityFrameDurationSecs: 5
-  numberOfIframes: 10
+  invincibilityFrameDurationSecs: 1
+  numberOfIframes: 1
 --- !u!96 &628529318
 TrailRenderer:
   serializedVersion: 3
