@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,7 +53,11 @@ namespace Player
         public float invincibilityFrameDurationSecs = 0.3f;
         private SpriteRenderer[] _spriteRenderers;
         private readonly List<Color> _normalSpriteColors = new List<Color>();
-        public int numberOfIframes = 10; 
+        public int numberOfIframes = 10;
+
+
+        [Header("Disable movement")] [Tooltip("Useful for cutscenes")]
+        public bool disablePlayerInteractivity = false; 
         
         private GameManager _gameManager;
 
@@ -76,19 +81,18 @@ namespace Player
             }
 
             _gameManager = GameManager.Instance;
+            _gameManager.OnPlayerTakeDamage(0);
+            
         }
 
         private void Update()
         {
+           
+            if (disablePlayerInteractivity) return; 
             if (_isDashing) return;
-
-            Vector2 movementDir = new Vector2(Input.GetAxis("Horizontal") * maxSlideSpeed, 0);
-            if (movementDir.x != 0) _lastDirection = movementDir.x > 0 ? 1 : -1;
-            
-            _rb.linearVelocity = movementDir;
-            float capturedTime = Time.time * 1000;
             
             _coyoteTimeCounter = IsGrounded() ? coyoteTime : _coyoteTimeCounter - Time.deltaTime;
+            float capturedTime = Time.time * 1000;
             
             if (capturedTime - _currentJumpCooldownTimestamp > jumpCooldownMillis && Input.GetButton("Jump") &&
                 (IsGrounded() || possibleJumpsInRow - 1 > _currentJumpsInRow || _coyoteTimeCounter > 0f))
@@ -98,11 +102,26 @@ namespace Player
                 _coyoteTimeCounter = 0;
             }
             
-            PlayerSpeed = _rb.linearVelocity;
-            
             if (Input.GetKeyDown(KeyCode.LeftShift) && _canDash) StartCoroutine(Dash());
             if (IsGrounded()) _currentJumpsInRow = 0;
             if (!_isInvincible && IsHurt()) StartCoroutine(OnCharacterTakeDamage());
+            
+        }
+
+
+        private void FixedUpdate()
+        {
+            
+            if (disablePlayerInteractivity) return; 
+            if (_isDashing) return;
+
+            Vector2 movementDir = new Vector2(Input.GetAxis("Horizontal") * maxSlideSpeed, 0);
+            if (movementDir.x != 0) _lastDirection = movementDir.x > 0 ? 1 : -1;
+            
+            _rb.linearVelocity = movementDir;
+            
+            PlayerSpeed = _rb.linearVelocity;
+           
         }
 
         private bool IsGrounded() => groundCheck && Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, _groundLayerId);

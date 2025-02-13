@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class LookAtCursor : MonoBehaviour
 {
-    // TODO: create a script that has offsets and other modular stuff you can track and move player with 
     [Header("Degree offset vars")] 
     public float finalOffsetDegree = 0;
     public Transform pivotPoint;
