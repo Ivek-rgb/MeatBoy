@@ -55,12 +55,20 @@ namespace Player
         private readonly List<Color> _normalSpriteColors = new List<Color>();
         public int numberOfIframes = 10;
 
-
         [Header("Disable movement")] [Tooltip("Useful for cutscenes")]
         public bool disablePlayerInteractivity = false; 
         
         private GameManager _gameManager;
 
+        // jump modifier 
+
+        [Header("Downward extra force")] 
+        public float downwardForceMultiplier = 1.5f;
+        public SpriteRenderer umbrellaVisualQueue;
+        public Vector2 pressBoxOffsets = new Vector2(0f, 1f);
+        private GameObject _ceilingForCrouching; 
+        
+        
         void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -82,7 +90,14 @@ namespace Player
 
             _gameManager = GameManager.Instance;
             _gameManager.OnPlayerTakeDamage(0);
+
             
+            if (umbrellaVisualQueue) umbrellaVisualQueue.enabled = false;
+
+            _ceilingForCrouching = new GameObject("SoftBodyCrouchLimiter");
+            BoxCollider2D col = _ceilingForCrouching.AddComponent<BoxCollider2D>();
+           
+
         }
 
         private void Update()
@@ -108,18 +123,39 @@ namespace Player
             
         }
 
-
         private void FixedUpdate()
         {
             
             if (disablePlayerInteractivity) return; 
             if (_isDashing) return;
 
+            // TODO: FIX THIS DAMN STINK HOLE OF IFs --From:Bench --To:Bench 
+            if (_rb.linearVelocity.y < -0.1 && !IsGrounded() && Input.GetAxis("Vertical") <= 0)
+                ApplyForce(Vector2.down * downwardForceMultiplier);
+
+            if (Input.GetAxis("Vertical") == 0)
+            {
+                _ceilingForCrouching.GetComponent<BoxCollider2D>().isTrigger = true;
+            }
+
+            if (Input.GetAxis("Vertical") > 0)
+            {
+                if (umbrellaVisualQueue) umbrellaVisualQueue.enabled = true; 
+            }else if (umbrellaVisualQueue) umbrellaVisualQueue.enabled = false; 
+
             Vector2 movementDir = new Vector2(Input.GetAxis("Horizontal") * maxSlideSpeed, 0);
             if (movementDir.x != 0) _lastDirection = movementDir.x > 0 ? 1 : -1;
             
             _rb.linearVelocity = movementDir;
-            
+
+            // crouch mechanic using invisible box that presses  on the player when he's grounded and down key has been pressed --Bench 
+            if (Input.GetAxis("Vertical") < 0 && IsGrounded())
+            {
+                _ceilingForCrouching.transform.position = new Vector3(transform.position.x + pressBoxOffsets.x, transform.position.y + pressBoxOffsets.y, transform.position.z);
+                _ceilingForCrouching.GetComponent<BoxCollider2D>().isTrigger = false;
+                SetLinearVelocity(movementDir * 0.5f);
+            }
+
             PlayerSpeed = _rb.linearVelocity;
            
         }
@@ -169,6 +205,29 @@ namespace Player
                 rb.linearVelocity += new Vector2(0, jumpForce);
                 _currentJumpsInRow++;
             }
+        }
+
+        // TODO: replace this ones with more general lambda functions tomorrow for exercise --Bench 
+        
+        private void ApplyForce(Vector2 forceAmount, ForceMode2D forceMode = ForceMode2D.Impulse)
+        {
+            foreach (var rb in _bodyRigidbodies)
+            {
+                rb.AddForce(forceAmount, forceMode);                
+            }
+        }
+
+        private void SetLinearVelocity(Vector2 velocity)
+        {
+            foreach (var rb in _bodyRigidbodies)
+            {
+                rb.linearVelocity = velocity; 
+            }
+        }
+
+        private void ModifyGravity()
+        {
+            
         }
 
         private IEnumerator Dash()
