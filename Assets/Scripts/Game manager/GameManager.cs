@@ -29,8 +29,9 @@ public class GameManager : MonoBehaviour
 
     private List<GameObject> _bloodDecalContainer = new List<GameObject>();
     [Header("DecalSettings")]
-    public int maxBloodDecalAmount = 100; 
-
+    public int maxBloodDecalAmount = 100;
+    private ParticleSystem _bloodEmitter; 
+    
     private bool _checkMade = true; 
     
     public static GameManager Instance { get; private set; }
@@ -64,11 +65,16 @@ public class GameManager : MonoBehaviour
         return _storedBloodSprites[Random.Range(0, _storedBloodSprites.Length)];
     }
 
-
     public void OnPlayerTakeDamage(int damageAmount)
     {
 
         lives -= damageAmount;
+        if (damageAmount > 0)
+        {
+            ParticleSystem instantiatedPrefab = Instantiate(_bloodEmitter, playerController.transform.position, Quaternion.identity);
+            instantiatedPrefab.Play();
+        }
+
         if (lives == 0)
         {
             OnPlayerDeathExlpode();
@@ -104,7 +110,9 @@ public class GameManager : MonoBehaviour
         }
 
         _prefabbedPlayer = Resources.Load<GameObject>("Prefabs/Player/Player");
-        _storedBloodSprites = Resources.LoadAll<Sprite>("Sprites/Blood/blood-sprites"); 
+        _storedBloodSprites = Resources.LoadAll<Sprite>("Sprites/Blood/blood-sprites");
+        _bloodEmitter = Resources.Load<ParticleSystem>("Prefabs/BloodEmitters/BlodSplashFinal");
+        
     }
     
     public void LaunchAllGiblets()

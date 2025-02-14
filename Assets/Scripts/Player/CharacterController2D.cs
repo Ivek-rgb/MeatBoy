@@ -66,9 +66,8 @@ namespace Player
         public float downwardForceMultiplier = 1.5f;
         public SpriteRenderer umbrellaVisualQueue;
         public Vector2 pressBoxOffsets = new Vector2(0f, 1f);
-        private GameObject _ceilingForCrouching; 
-        
-        
+        private GameObject _ceilingForCrouching;
+
         void Start()
         {
             _rb = GetComponent<Rigidbody2D>();

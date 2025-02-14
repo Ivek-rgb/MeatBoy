@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ae4859852c1cd27438a16ef12c6fddbc
+guid: 6e8869e683b90fc4e8bb0e66dbc57ed3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -327178562733787325
-    second: circular-saw_0
+      213: -4862808877800674337
+    second: SolftCircle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: circular-saw_0
+      name: SolftCircle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 200
-        height: 200
+        width: 422
+        height: 422
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3473126a4d0a57bf0800000000000000
-      internalID: -327178562733787325
+      spriteID: fdb23140715d38cb0800000000000000
+      internalID: -4862808877800674337
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      circular-saw_0: -327178562733787325
+      SolftCircle_0: -4862808877800674337
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
