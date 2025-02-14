@@ -53,32 +53,18 @@ public class LivesUIController : MonoBehaviour
         if (heartPulseController == null)
             return; 
             
-        if (newLives > 3)
-        {
-            heartPulseController.pulseSpeed = 5f; 
-        }else if (newLives > 1)
-        {
-            heartPulseController.pulseSpeed = 10f; 
-        }
-        else
-        {
-            heartPulseController.pulseSpeed = 20f;
-        }
+        // this can be replaced by more optimal function 
+        float clamped = Mathf.Clamp(newLives, 0, 3);
+        heartPulseController.pulseSpeed = clamped * Mathf.Exp(-clamped + 1) * 15f; 
+        
     }
 
     private void HandleLivesChangeText(int newLives)
     {
         if (numberLivesCounter == null)
-            return; 
-            
-        Debug.Log(_numberSpriteDictionary[$"sprite_{newLives}"] + $"    $sprite_{newLives}");
-        numberLivesCounter.sprite = _numberSpriteDictionary[$"sprite_{newLives}"]; 
+            return;
+        numberLivesCounter.sprite = _numberSpriteDictionary[$"{(newLives > 0 ? "sprite_" + newLives : "times")}"]; 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     
 }

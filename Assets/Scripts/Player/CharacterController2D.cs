@@ -1,152 +1,174 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Player
 {
-    /**
- * PLAYER CONTROLLER FOR OUR LITTLE RED BLOB OF PAIN 
- */
     public class CharacterController2D : MonoBehaviour
     {
-        [Header("Movement variables")]
-        public float jumpForce = 15; // 15 offers really good take 
+        [Header("Movement Variables")]
+        public float jumpForce = 15f;
         public float maxSlideSpeed;
         public float coyoteTime = 0.2f;
-        private float _coyoteTimeCounter; 
+        private float _coyoteTimeCounter;
         
-        [Header("Debug print variables")]
-        [field: SerializeField] public Vector2 PlayerSpeed { get; private set; } = new(0, 0);
+        [Header("Debug")]
+        [field: SerializeField] public Vector2 PlayerSpeed { get; private set; } = Vector2.zero;
 
-        private Rigidbody2D _rb; 
-
-        [Header("Ground check settings")] 
+        private Rigidbody2D _rb;
+        
+        [Header("Ground Check")]
         public Transform groundCheck;
         public float groundCheckRadius = 0.2f;
-        public int groundLayerId;
+        private int _groundLayerId;
         
-        [Header("Character settings")]
+        [Header("Jump Settings")]
         public int possibleJumpsInRow = 2;
-        private int _currentJumpsInRow = 0;
+        private int _currentJumpsInRow;
+        public float jumpCooldownMillis = 300f;
+        private float _currentJumpCooldownTimestamp;
 
-        [Header("Jump settings")] 
-        public float jumpCooldownMillis = 300f;   
-        private float _currentJumpCooldownTimestamp = 0;
-
-        [Header("Spring settings")] 
+        [Header("Spring Settings")]
         public float springCompressionFactor = 0.8f;
-
-        private Transform _parentBodyComponent;
+        
         private Rigidbody2D[] _bodyRigidbodies;
         private SpringJoint2D[] _bodySpringJoints;
-        private int _lastDirection = 1; 
+        private int _lastDirection = 1;
         
-        [Header("Dashing settings")] 
+        [Header("Dashing Settings")]
         private bool _canDash = true;
-        private bool _isDashing = false;
+        private bool _isDashing;
         public float dashingPower = 24f;
         public float dashingTime = 0.2f;
         public float dashingCoolDown = 1f;
         [SerializeField] private TrailRenderer trailRenderer;
-
-        private GameManager _gameManager; // for player UI connection 
         
+        [Header("Hurt Settings")]
+        public Transform hurtTrigger;
+        public float hurtTriggerRadius = 1f;
+        private int _hurtLayerId;
+        private bool _isInvincible;
+        [Tooltip("Duration of a whole iframe - player changes color from white to normal")]
+        public float invincibilityFrameDurationSecs = 0.3f;
+        private SpriteRenderer[] _spriteRenderers;
+        private readonly List<Color> _normalSpriteColors = new List<Color>();
+        public int numberOfIframes = 10;
+
+
+        [Header("Disable movement")] [Tooltip("Useful for cutscenes")]
+        public bool disablePlayerInteractivity = false; 
+        
+        private GameManager _gameManager;
+
         void Start()
         {
-            
             _rb = GetComponent<Rigidbody2D>();
-            groundLayerId = LayerMask.GetMask("Ground");
-            _currentJumpCooldownTimestamp = Time.time * 1000;
-            _parentBodyComponent = transform.parent;
             
-            _bodyRigidbodies = _parentBodyComponent.GetComponentsInChildren<Rigidbody2D>(); 
-            _bodySpringJoints = _parentBodyComponent.GetComponentsInChildren<SpringJoint2D>();
+            _groundLayerId = LayerMask.GetMask("Ground");
+            _hurtLayerId = LayerMask.GetMask("Damage");
+            
+            _currentJumpCooldownTimestamp = Time.time * 1000;
+            var parentBody = transform.parent;
+            
+            _bodyRigidbodies = parentBody.GetComponentsInChildren<Rigidbody2D>();
+            _bodySpringJoints = parentBody.GetComponentsInChildren<SpringJoint2D>();
+            _spriteRenderers = parentBody.GetComponentsInChildren<SpriteRenderer>();
 
-            _gameManager = GameManager.Instance; 
+            foreach (SpriteRenderer spr in _spriteRenderers)
+            {
+                _normalSpriteColors.Add(spr.color);
+            }
 
+            _gameManager = GameManager.Instance;
+            _gameManager.OnPlayerTakeDamage(0);
+            
         }
 
         private void Update()
         {
-            if (_isDashing) return; // prevent any additional movements while dashing // don't touch this 
+           
+            if (disablePlayerInteractivity) return; 
+            if (_isDashing) return;
             
-            CharacterWobbleOnWalk();
-            
-            Vector2 movementDir = new Vector2(Input.GetAxis("Horizontal") * maxSlideSpeed, 0);
-
-            if (movementDir.x != 0)
-                _lastDirection = movementDir.x > 0 ? 1 : -1; 
-            
-            _rb.AddForce(movementDir, ForceMode2D.Force);  
-            _rb.linearVelocity = movementDir;
+            _coyoteTimeCounter = IsGrounded() ? coyoteTime : _coyoteTimeCounter - Time.deltaTime;
             float capturedTime = Time.time * 1000;
             
-            // implemented to give small timeframe to player to make grounded jump even after leaving the ground  
-            if (IsGrounded())
-            {
-                _coyoteTimeCounter = coyoteTime; 
-            }
-            else
-            {
-                _coyoteTimeCounter -= Time.deltaTime; 
-            }
-
-            if ( capturedTime - _currentJumpCooldownTimestamp > jumpCooldownMillis &&  Input.GetButton("Jump") && (IsGrounded() || (possibleJumpsInRow - 1 > _currentJumpsInRow) || _coyoteTimeCounter > 0f))
+            if (capturedTime - _currentJumpCooldownTimestamp > jumpCooldownMillis && Input.GetButton("Jump") &&
+                (IsGrounded() || possibleJumpsInRow - 1 > _currentJumpsInRow || _coyoteTimeCounter > 0f))
             {
                 Jump();
                 _currentJumpCooldownTimestamp = capturedTime;
-                _coyoteTimeCounter = 0; 
-            }
-
-            PlayerSpeed = _rb.linearVelocity;
-
-            if (Input.GetKeyDown(KeyCode.LeftShift) && _canDash)
-            {
-                StartCoroutine(Dash()); 
+                _coyoteTimeCounter = 0;
             }
             
-            // TODO: implement box for ground checking because it's much more cleaner and better for checking our 'blocky' fellow 
-
-            if (IsGrounded())
-            {
-                _currentJumpsInRow = 0; 
-            }
-
+            if (Input.GetKeyDown(KeyCode.LeftShift) && _canDash) StartCoroutine(Dash());
+            if (IsGrounded()) _currentJumpsInRow = 0;
+            if (!_isInvincible && IsHurt()) StartCoroutine(OnCharacterTakeDamage());
+            
         }
+
 
         private void FixedUpdate()
         {
-            if (_isDashing) return; 
+            
+            if (disablePlayerInteractivity) return; 
+            if (_isDashing) return;
+
+            Vector2 movementDir = new Vector2(Input.GetAxis("Horizontal") * maxSlideSpeed, 0);
+            if (movementDir.x != 0) _lastDirection = movementDir.x > 0 ? 1 : -1;
+            
+            _rb.linearVelocity = movementDir;
+            
+            PlayerSpeed = _rb.linearVelocity;
+           
         }
 
+        private bool IsGrounded() => groundCheck && Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, _groundLayerId);
+        private bool IsHurt() => hurtTrigger && Physics2D.OverlapCircle(hurtTrigger.position, hurtTriggerRadius, _hurtLayerId);
 
-        private bool IsGrounded()
+        private IEnumerator OnCharacterTakeDamage()
         {
-            return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayerId); 
-        }
-
-
-        // TODO: get push factor from damage source and activate iframe with visual display for character 
-        private void OnCharacterTakeDamage()
-        {
+            _isInvincible = true;
             _gameManager.OnPlayerTakeDamage(1);
+            
+            foreach (var rb in _bodyRigidbodies)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x * -5f, 3f);
+            }
+
+            for (int i = 0; i < numberOfIframes; i++)
+            {
+
+                float currentTimer = invincibilityFrameDurationSecs * Mathf.Pow(10, -i * 0.1f) * 1/2f; 
+                
+                foreach (var spr in _spriteRenderers)
+                {
+                    spr.color = new Color(255, 0, 0, 0.75f);
+                }
+                
+                yield return new WaitForSeconds(currentTimer / 2);
+
+                for (var j = 0; j < _spriteRenderers.Length; j++)
+                {
+                    _spriteRenderers[j].color = _normalSpriteColors[j]; 
+                }
+                
+                yield return new WaitForSeconds(currentTimer / 2);
+
+            }
+            
+            _isInvincible = false;
         }
 
         private void Jump()
         {
-
-            foreach (var springRb in _bodyRigidbodies)
+            foreach (var rb in _bodyRigidbodies)
             {
-                springRb.linearVelocity += new Vector2(0, jumpForce); 
+
+                rb.linearVelocity += new Vector2(0, jumpForce);
                 _currentJumpsInRow++;
             }
-            
         }
 
         private IEnumerator Dash()
@@ -154,68 +176,42 @@ namespace Player
             _canDash = false;
             _isDashing = true;
             
-            var originalGravities = new float[this._bodyRigidbodies.Length];
-            for (var i = 0; i < originalGravities.Length; i++)
+            var originalGravities = new float[_bodyRigidbodies.Length];
+            for (int i = 0; i < _bodyRigidbodies.Length; i++)
+            {
                 originalGravities[i] = _bodyRigidbodies[i].gravityScale;
-
-            foreach (var t in _bodyRigidbodies)
-                t.gravityScale = 0;
-
-            foreach (var t in _bodyRigidbodies)
-                t.linearVelocity = new Vector2(transform.localScale.x * dashingPower * _lastDirection, 0f);
-
-            trailRenderer.emitting = true; 
+                _bodyRigidbodies[i].gravityScale = 0;
+                _bodyRigidbodies[i].linearVelocity = new Vector2(transform.localScale.x * dashingPower * _lastDirection, 0f);
+            }
             
+            trailRenderer.emitting = true;
             yield return new WaitForSeconds(dashingTime);
             
             trailRenderer.emitting = false;
-            for (int i = 0; i < originalGravities.Length; i++) 
-                _bodyRigidbodies[i].gravityScale = originalGravities[i]; 
-
+            for (int i = 0; i < _bodyRigidbodies.Length; i++)
+                _bodyRigidbodies[i].gravityScale = originalGravities[i];
+            
             _isDashing = false;
-            
             yield return new WaitForSeconds(dashingCoolDown);
-            _canDash = true; 
-            
-        }
-
-
-        private void CharacterWobbleOnWalk()
-        {
-            var contraction = Mathf.Abs(Mathf.Sin(Time.time)) *  0.1f; 
-            
-            foreach (var springJoint2D in _bodySpringJoints)
-            {
-                springJoint2D.distance *= contraction; 
-            }
-            
-        }
-
-        private void CompressSprings()
-        {
-            foreach (var spring2D in _bodySpringJoints)
-            {
-                spring2D.distance *= springCompressionFactor; 
-
-            }
-        }
-
-        private void RestoreSprings()
-        {
-            foreach (var spring2D in _bodySpringJoints)
-            {
-                spring2D.distance *= springCompressionFactor; 
-
-            }
+            _canDash = true;
         }
 
         private void OnDrawGizmosSelected()
         {
-            if (groundCheck == null) return;
-            Gizmos.color = Color.red; 
+            if (!groundCheck || !hurtTrigger) return;
+            Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(hurtTrigger.position, hurtTriggerRadius);
         }
+
+        public void DestroyWholePlayer()
+        {
+            var grandParentObject = transform.parent.parent.gameObject; 
+            Debug.Log(grandParentObject);
+            Destroy(grandParentObject);
+        }
+
 
     }
 }

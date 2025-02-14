@@ -62,9 +62,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Utils\LookAtCursor.cs" />
     <Compile Include="Assets\Scripts\Player\CharacterController2D.cs" />
+    <Compile Include="Assets\Scripts\Utils\RotationAnimation.cs" />
+    <Compile Include="Assets\Scripts\Environment\RecombinatorScript.cs" />
     <Compile Include="Assets\Scripts\UIScripts\LivesUIController.cs" />
+    <Compile Include="Assets\Scripts\Utils\CleanupGibs.cs" />
     <Compile Include="Assets\Scripts\Utils\CameraFollowBehaviour.cs" />
     <Compile Include="Assets\Scripts\Utils\HeartPulse.cs" />
+    <Compile Include="Assets\Scripts\Environment\BloodSplatter.cs" />
+    <Compile Include="Assets\Scripts\Environment\HurtTrigger.cs" />
     <Compile Include="Assets\Scripts\Game manager\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>

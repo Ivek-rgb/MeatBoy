@@ -1,0 +1,327 @@
+fileFormatVersion: 2
+guid: f5588fc102896164a99bfd0c31831f3e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6953108913327837252
+    second: blood-sprites_0
+  - first:
+      213: -7449028784156187508
+    second: blood-sprites_1
+  - first:
+      213: -2350279091851076515
+    second: blood-sprites_2
+  - first:
+      213: -1355038585440180268
+    second: blood-sprites_3
+  - first:
+      213: 7949407723218750634
+    second: blood-sprites_4
+  - first:
+      213: 802609944824068233
+    second: blood-sprites_5
+  - first:
+      213: 7938363607678024440
+    second: blood-sprites_6
+  - first:
+      213: -402085699551913266
+    second: blood-sprites_7
+  - first:
+      213: 8452926821962763517
+    second: blood-sprites_8
+  - first:
+      213: -8910091671946150208
+    second: blood-sprites_9
+  - first:
+      213: 8193217278486708730
+    second: blood-sprites_10
+  - first:
+      213: 725867888574876987
+    second: blood-sprites_11
+  - first:
+      213: 3733909092435956138
+    second: blood-sprites_12
+  - first:
+      213: 665868260998953826
+    second: blood-sprites_13
+  - first:
+      213: 4702154526567440044
+    second: blood-sprites_14
+  - first:
+      213: -893209454752004613
+    second: blood-sprites_15
+  - first:
+      213: -363801193541269169
+    second: blood-sprites_16
+  - first:
+      213: 278948758866706190
+    second: blood-sprites_17
+  - first:
+      213: 3643670173229141918
+    second: blood-sprites_18
+  - first:
+      213: -2930529441046727510
+    second: blood-sprites_19
+  - first:
+      213: 8492698186381135118
+    second: blood-sprites_20
+  - first:
+      213: 6023752952521124802
+    second: blood-sprites_21
+  - first:
+      213: 697296263459966800
+    second: blood-sprites_22
+  - first:
+      213: 2262402154455410242
+    second: blood-sprites_23
+  - first:
+      213: 7008742262955151684
+    second: blood-sprites_24
+  - first:
+      213: 4041688162304470283
+    second: blood-sprites_25
+  - first:
+      213: 8548036876179978552
+    second: blood-sprites_26
+  - first:
+      213: -6955867457298472792
+    second: blood-sprites_27
+  - first:
+      213: -384105766701645292
+    second: blood-sprites_28
+  - first:
+      213: 3980520414526035229
+    second: blood-sprites_29
+  - first:
+      213: 5086393903934329108
+    second: blood-sprites_30
+  - first:
+      213: 6626867706758397921
+    second: blood-sprites_31
+  - first:
+      213: 2726423493804000684
+    second: blood-sprites_32
+  - first:
+      213: 8469607468224205449
+    second: blood-sprites_33
+  - first:
+      213: 2102630452630110198
+    second: blood-sprites_34
+  - first:
+      213: 7153401926750145549
+    second: blood-sprites_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blood-sprites_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 188
+        width: 168
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 440128fa7b76e7060800000000000000
+      internalID: 6953108913327837252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood-sprites_5
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 207
+        width: 165
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9883f6e0e71732b00800000000000000
+      internalID: 802609944824068233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood-sprites_25
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 173
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0d2f0748f5f61830800000000000000
+      internalID: 4041688162304470283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 438c88bb125c1114f9526c931eb1fea8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      blood-sprites_0: 6953108913327837252
+      blood-sprites_1: -7449028784156187508
+      blood-sprites_10: 8193217278486708730
+      blood-sprites_11: 725867888574876987
+      blood-sprites_12: 3733909092435956138
+      blood-sprites_13: 665868260998953826
+      blood-sprites_14: 4702154526567440044
+      blood-sprites_15: -893209454752004613
+      blood-sprites_16: -363801193541269169
+      blood-sprites_17: 278948758866706190
+      blood-sprites_18: 3643670173229141918
+      blood-sprites_19: -2930529441046727510
+      blood-sprites_2: -2350279091851076515
+      blood-sprites_20: 8492698186381135118
+      blood-sprites_21: 6023752952521124802
+      blood-sprites_22: 697296263459966800
+      blood-sprites_23: 2262402154455410242
+      blood-sprites_24: 7008742262955151684
+      blood-sprites_25: 4041688162304470283
+      blood-sprites_26: 8548036876179978552
+      blood-sprites_27: -6955867457298472792
+      blood-sprites_28: -384105766701645292
+      blood-sprites_29: 3980520414526035229
+      blood-sprites_3: -1355038585440180268
+      blood-sprites_30: 5086393903934329108
+      blood-sprites_31: 6626867706758397921
+      blood-sprites_32: 2726423493804000684
+      blood-sprites_33: 8469607468224205449
+      blood-sprites_34: 2102630452630110198
+      blood-sprites_35: 7153401926750145549
+      blood-sprites_4: 7949407723218750634
+      blood-sprites_5: 802609944824068233
+      blood-sprites_6: 7938363607678024440
+      blood-sprites_7: -402085699551913266
+      blood-sprites_8: 8452926821962763517
+      blood-sprites_9: -8910091671946150208
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
