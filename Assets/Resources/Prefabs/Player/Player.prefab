@@ -873,7 +873,7 @@ MonoBehaviour:
   disablePlayerInteractivity: 0
   downwardForceMultiplier: 1.0002
   umbrellaVisualQueue: {fileID: 4364335995864033687}
-  pressBoxOffsets: {x: 0, y: 0.87}
+  pressBoxOffsets: {x: 0, y: 0.83}
 --- !u!96 &5181234539962942629
 TrailRenderer:
   serializedVersion: 3

@@ -44,7 +44,7 @@ public class CircularSaw : MonoBehaviour
         float randomRotation = Random.Range(0f, maxRotationAngle);
         spriteRenderer.transform.rotation = Quaternion.Euler(0f, 0f, randomRotation);
 
-        Color darkenColor = spriteRenderer.color * Random.Range(0.6f, 0.9f); // darken by 10-20%, just stay as static // it makes the blood more cool --Bench 
+        Color darkenColor = spriteRenderer.color * Random.Range(0.7f, 0.97f); // darken by 10-20%, just stay as static // it makes the blood more cool --Bench 
         spriteRenderer.color = darkenColor;
 
         spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;

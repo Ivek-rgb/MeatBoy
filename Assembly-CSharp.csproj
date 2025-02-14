@@ -47,8 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Utils\LookAtCursor.cs" />
+    <Compile Include="Assets\Scripts\Environment\LinearMovingScript.cs" />
     <Compile Include="Assets\Scripts\Player\CharacterController2D.cs" />
     <Compile Include="Assets\Scripts\Utils\RotationAnimation.cs" />
+    <Compile Include="Assets\Scripts\Environment\MoveWithEscalator.cs" />
+    <Compile Include="Assets\Scripts\Environment\AntiGravitationalFields.cs" />
     <Compile Include="Assets\Scripts\Environment\RecombinatorScript.cs" />
     <Compile Include="Assets\Scripts\UIScripts\LivesUIController.cs" />
     <Compile Include="Assets\Scripts\Utils\CleanupGibs.cs" />

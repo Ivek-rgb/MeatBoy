@@ -129,7 +129,6 @@ namespace Player
             if (disablePlayerInteractivity) return; 
             if (_isDashing) return;
 
-            // TODO: FIX THIS DAMN STINK HOLE OF IFs --From:Bench --To:Bench 
             if (_rb.linearVelocity.y < -0.1 && !IsGrounded() && Input.GetAxis("Vertical") <= 0)
                 ApplyForce(Vector2.down * downwardForceMultiplier);
 
@@ -138,7 +137,7 @@ namespace Player
                 _ceilingForCrouching.GetComponent<BoxCollider2D>().isTrigger = true;
             }
 
-            if (Input.GetAxis("Vertical") > 0)
+            if (Input.GetAxis("Vertical") > 0 && !IsGrounded())
             {
                 if (umbrellaVisualQueue) umbrellaVisualQueue.enabled = true; 
             }else if (umbrellaVisualQueue) umbrellaVisualQueue.enabled = false; 
@@ -153,7 +152,7 @@ namespace Player
             {
                 _ceilingForCrouching.transform.position = new Vector3(transform.position.x + pressBoxOffsets.x, transform.position.y + pressBoxOffsets.y, transform.position.z);
                 _ceilingForCrouching.GetComponent<BoxCollider2D>().isTrigger = false;
-                SetLinearVelocity(movementDir * 0.5f);
+                SetLinearVelocity(movementDir * 0.5f); // just add linear x movement on every spring joint so the player can actually move 
             }
 
             PlayerSpeed = _rb.linearVelocity;
@@ -165,14 +164,15 @@ namespace Player
 
         private IEnumerator OnCharacterTakeDamage()
         {
-            _isInvincible = true;
-            _gameManager.OnPlayerTakeDamage(1);
             
             foreach (var rb in _bodyRigidbodies)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x * -5f, 3f);
             }
 
+            _isInvincible = true;
+            _gameManager.OnPlayerTakeDamage(1);
+           
             for (int i = 0; i < numberOfIframes; i++)
             {
 
@@ -207,7 +207,7 @@ namespace Player
             }
         }
 
-        // TODO: replace this ones with more general lambda functions tomorrow for exercise --Bench 
+        // good enough for now --Bench 
         
         private void ApplyForce(Vector2 forceAmount, ForceMode2D forceMode = ForceMode2D.Impulse)
         {
@@ -225,9 +225,9 @@ namespace Player
             }
         }
 
-        private void ModifyGravity()
+        private void OnDestroy()
         {
-            
+            Destroy(_ceilingForCrouching);
         }
 
         private IEnumerator Dash()
