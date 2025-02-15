@@ -55,6 +55,7 @@
     <Compile Include="Assets\Scripts\Environment\RecombinatorScript.cs" />
     <Compile Include="Assets\Scripts\UIScripts\LivesUIController.cs" />
     <Compile Include="Assets\Scripts\Utils\CleanupGibs.cs" />
+    <Compile Include="Assets\Scripts\Environment\DoorWormhole.cs" />
     <Compile Include="Assets\Scripts\Utils\CameraFollowBehaviour.cs" />
     <Compile Include="Assets\Scripts\Utils\HeartPulse.cs" />
     <Compile Include="Assets\Scripts\Environment\BloodSplatter.cs" />

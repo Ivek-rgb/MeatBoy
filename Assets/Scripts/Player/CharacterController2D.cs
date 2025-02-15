@@ -205,7 +205,7 @@ namespace Player
                 _currentJumpsInRow++;
             }
         }
-
+        
         // good enough for now --Bench 
         
         private void ApplyForce(Vector2 forceAmount, ForceMode2D forceMode = ForceMode2D.Impulse)
@@ -223,6 +223,15 @@ namespace Player
                 rb.linearVelocity = velocity; 
             }
         }
+
+        public void AddOnVelocity(Vector2 velocity)
+        {
+            foreach (var rb in _bodyRigidbodies)
+            {
+                rb.linearVelocity += velocity; 
+            }
+        }
+
 
         private void OnDestroy()
         {
@@ -268,6 +277,11 @@ namespace Player
             var grandParentObject = transform.parent.parent.gameObject; 
             Debug.Log(grandParentObject);
             Destroy(grandParentObject);
+        }
+
+        public float GetPlayerSpeedMagnitude()
+        {
+            return this._rb.linearVelocity.magnitude; 
         }
 
 

@@ -161,12 +161,18 @@ public class GameManager : MonoBehaviour
         return new Vector2(Mathf.Cos(randomAngle * Mathf.Deg2Rad), Mathf.Sin(randomAngle * Mathf.Deg2Rad));
     }
 
+    private CharacterController2D CreateNewPlayer(Vector3 newPosition)
+    {
+        GameObject instantiatedPlayer = Instantiate(_prefabbedPlayer, newPosition, Quaternion.identity);
+        playerController = instantiatedPlayer.GetComponentInChildren<CharacterController2D>();
+        return playerController; 
+    }
+
     public IEnumerator ResurrectPlayerProcedure()
     {
         
         yield return new WaitForSeconds(0.5f);
-        GameObject instantiatedPlayer = Instantiate(_prefabbedPlayer, _currentCheckpoint.transform.position, Quaternion.identity);
-        playerController = instantiatedPlayer.GetComponentInChildren<CharacterController2D>();
+        playerController = CreateNewPlayer(_currentCheckpoint.transform.position);
         if (playerController)
         {
             playerController.disablePlayerInteractivity = true; 
@@ -175,6 +181,22 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1f); 
         }
         
+    }
+
+    public IEnumerator TeleportCharacter(Vector3 newLocation)
+    {
+
+        // stop player from overflowing teleport // pretty much calm him down before teleporting
+        if (playerController.disablePlayerInteractivity && playerController.GetPlayerSpeedMagnitude() > 0.1f) yield break; 
+        
+        GameObject playerGameObject = playerController.transform.parent.parent.gameObject;
+        Destroy(playerGameObject);
+        playerController = CreateNewPlayer(newLocation);
+        mainLevelCamera.GetComponent<CameraFollowBehaviour>().target = playerController.transform;
+        playerController.disablePlayerInteractivity = true;
+        yield return new WaitForSeconds(2f);
+        playerController.disablePlayerInteractivity = false; 
+
     }
 
     void FixedUpdate()
