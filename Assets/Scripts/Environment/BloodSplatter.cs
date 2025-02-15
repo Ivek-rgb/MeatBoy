@@ -1,4 +1,5 @@
 using System;
+using Player;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -60,6 +61,8 @@ public class CircularSaw : MonoBehaviour
     {
         if (other.CompareTag("Player") && CanSpawnDecal())
         {
+            CharacterController2D character = other.GetComponent<CharacterController2D>();
+            if (!character || character.IsInvincible()) return;  
             _timerCooldown = coolDownInSecs; 
             SpawnSprite(other.ClosestPoint(transform.position));
         }

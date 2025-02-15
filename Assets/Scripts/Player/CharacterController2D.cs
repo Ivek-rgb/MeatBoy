@@ -175,21 +175,21 @@ namespace Player
             for (int i = 0; i < numberOfIframes; i++)
             {
 
-                float currentTimer = invincibilityFrameDurationSecs * Mathf.Pow(10, -i * 0.1f) * 1/2f; 
-                
                 foreach (var spr in _spriteRenderers)
                 {
-                    spr.color = new Color(255, 0, 0, 0.75f);
+                    Color color = spr.color;
+                    color.a = 0.5f; 
+                    spr.color = color;
                 }
                 
-                yield return new WaitForSeconds(currentTimer / 2);
+                yield return new WaitForSeconds(invincibilityFrameDurationSecs / 2);
 
                 for (var j = 0; j < _spriteRenderers.Length; j++)
                 {
                     _spriteRenderers[j].color = _normalSpriteColors[j]; 
                 }
                 
-                yield return new WaitForSeconds(currentTimer / 2);
+                yield return new WaitForSeconds(invincibilityFrameDurationSecs / 2);
 
             }
             
@@ -198,10 +198,15 @@ namespace Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("HurtTrigger"))
+            if (other.CompareTag("HurtTrigger") && !_isInvincible)
             {
                 StartCoroutine(OnCharacterTakeDamage()); 
             }
+        }
+
+        public bool IsInvincible()
+        {
+            return _isInvincible; 
         }
 
         private void Jump()
