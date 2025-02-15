@@ -1712,9 +1712,9 @@ GameObject:
   - component: {fileID: 1230620152}
   - component: {fileID: 1230620151}
   - component: {fileID: 1230620150}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cargo-crate_0
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
