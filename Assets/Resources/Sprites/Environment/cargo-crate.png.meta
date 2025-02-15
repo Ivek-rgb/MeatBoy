@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cargo-crate_0: 8102357600001549903
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
