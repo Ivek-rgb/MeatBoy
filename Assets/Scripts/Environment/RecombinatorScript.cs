@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Player;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class RecombinatorScript : MonoBehaviour
 {
@@ -15,8 +16,10 @@ public class RecombinatorScript : MonoBehaviour
     [Header("Animated parts")]
     [Tooltip("Mostly not configurable since prefabs will be used to drag checkpoints on level")]
     public SpriteRenderer door;
-    public Transform openDoorPosition; 
+    public Transform openDoorPosition;
+    public Light2D statusLight; 
     private Vector3 _originalDoorPosition; 
+    
     
     
     private void Awake()
@@ -29,6 +32,8 @@ public class RecombinatorScript : MonoBehaviour
         _gameManager = GameManager.Instance;
         if (door != null)
             _originalDoorPosition = door.transform.position; 
+        
+        TurnOffLight();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -77,6 +82,16 @@ public class RecombinatorScript : MonoBehaviour
             yield return null; 
         }
 
+    }
+
+    public void TurnOnLight()
+    {
+        statusLight.intensity = 1.2f; 
+    }
+
+    public void TurnOffLight()
+    {
+        statusLight.intensity = 0;
     }
 
     // Update is called once per frame

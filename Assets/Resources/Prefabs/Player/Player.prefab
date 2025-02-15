@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6757763052623412202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 691325673489960330}
   - component: {fileID: 6912953744484274913}
   - component: {fileID: 2974737107505261917}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bone_4
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 4487182956578437527}
   - component: {fileID: 4771470390216849666}
   - component: {fileID: 3608796644540155257}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bone_2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3395096611611532266}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: JumpCollisionTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 6174463935798428811}
   - component: {fileID: 8214725544135118657}
   - component: {fileID: 3761852279633006374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BodyComponent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 1049479922068452734}
   - component: {fileID: 6195658048369623157}
   - component: {fileID: 5243865258287632200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bone_6
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -683,7 +683,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5234118909281517438}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,7 +716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8320658500861973748}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -753,7 +753,7 @@ GameObject:
   - component: {fileID: 829593827673345352}
   - component: {fileID: 5181234539962942629}
   - component: {fileID: 6885472948428122048}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MainConnectionBone
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1025,7 +1025,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0011305213, y: -0.02628553}
+  m_Offset: {x: 0.020087123, y: -0.01748383}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1035,7 +1035,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.92523515, y: 0.85548186}
+  m_Size: {x: 0.96308875, y: 0.87308526}
   m_EdgeRadius: 0
 --- !u!1 &5943666320583427001
 GameObject:
@@ -1138,7 +1138,7 @@ GameObject:
   - component: {fileID: 1598209680149315809}
   - component: {fileID: 2512731198194001055}
   - component: {fileID: 5577933763468214128}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bone_5
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1300,7 +1300,7 @@ GameObject:
   - component: {fileID: 3256276317174607771}
   - component: {fileID: 4846715770405597383}
   - component: {fileID: 5126807141911737830}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bone_7
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1458,7 +1458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 353522351250285465}
   - component: {fileID: 7232493951122666701}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: eye-white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1546,7 +1546,7 @@ GameObject:
   - component: {fileID: 1998601301114134381}
   - component: {fileID: 7520220323438497118}
   - component: {fileID: 3159200782644555711}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: iris
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1652,7 +1652,7 @@ GameObject:
   - component: {fileID: 1847132923405468762}
   - component: {fileID: 8533658143367765288}
   - component: {fileID: 3858346829847132864}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bone_8
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1809,7 +1809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7383133527319665788}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HurtCollisionTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1845,7 +1845,7 @@ GameObject:
   - component: {fileID: 5918144144386489764}
   - component: {fileID: 8860654224698493134}
   - component: {fileID: 939755263583922614}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bone_1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2007,7 +2007,7 @@ GameObject:
   - component: {fileID: 2103327839215363862}
   - component: {fileID: 6228365382668590507}
   - component: {fileID: 7802673484190484281}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bone_3
   m_TagString: Player
   m_Icon: {fileID: 0}

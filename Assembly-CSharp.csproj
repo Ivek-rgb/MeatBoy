@@ -47,8 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Utils\LookAtCursor.cs" />
+    <Compile Include="Assets\Scripts\Utils\BulletTipCleanup.cs" />
     <Compile Include="Assets\Scripts\Environment\LinearMovingScript.cs" />
+    <Compile Include="Assets\Scripts\AI\MachineGun.cs" />
+    <Compile Include="Assets\Scripts\Utils\ShellCasingCleaner.cs" />
     <Compile Include="Assets\Scripts\Player\CharacterController2D.cs" />
+    <Compile Include="Assets\Scripts\Utils\BippingLight.cs" />
     <Compile Include="Assets\Scripts\Utils\RotationAnimation.cs" />
     <Compile Include="Assets\Scripts\Environment\MoveWithEscalator.cs" />
     <Compile Include="Assets\Scripts\Environment\AntiGravitationalFields.cs" />

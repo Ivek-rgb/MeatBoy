@@ -196,6 +196,14 @@ namespace Player
             _isInvincible = false;
         }
 
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("HurtTrigger"))
+            {
+                StartCoroutine(OnCharacterTakeDamage()); 
+            }
+        }
+
         private void Jump()
         {
             foreach (var rb in _bodyRigidbodies)

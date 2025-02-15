@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
     public int maxBloodDecalAmount = 100;
     private ParticleSystem _bloodEmitter; 
     
-    private bool _checkMade = true; 
-    
+    private bool _checkMade = true;
+
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -146,10 +146,13 @@ public class GameManager : MonoBehaviour
 
     public void SetCheckpoint(RecombinatorScript newCheckpointCandidate)
     {
+        
         int instanceID = newCheckpointCandidate.instanceID; 
         if (!_collectionOfCheckpoints.Contains(instanceID))
         {
+            if(_currentCheckpoint) _currentCheckpoint.TurnOffLight();
             _currentCheckpoint = newCheckpointCandidate;
+            _currentCheckpoint.TurnOnLight();
             _collectionOfCheckpoints.Add(instanceID); 
         }
 

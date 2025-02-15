@@ -125,7 +125,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: office-complex
     originalName: 
-    pivot: {x: 1.5, y: -5.2125}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,7 +133,7 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 164
+      width: 205
       height: 80
     spriteID: 2a058f200921ef9479158e1e0a714fe9
     spriteBone: []
@@ -157,9 +157,9 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 4
-        y: 417
-        width: 164
+        x: 0
+        y: 0
+        width: 205
         height: 80
       spriteId: 2a058f200921ef9479158e1e0a714fe9
     linkedCells: []
@@ -180,5 +180,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 500, y: 500}
+  canvasSize: {x: 205, y: 80}
   previousTextureSize: {x: 256, y: 128}
