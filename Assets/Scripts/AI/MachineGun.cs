@@ -139,7 +139,7 @@ public class MachineGun : MonoBehaviour
                 _hitPoint = hit.collider.transform.position;
                 hasIdentified = true;
                 _currLockingTime += Time.fixedDeltaTime;
-                if (_currLockingTime >= lockInTimeSecs)
+                if (_currLockingTime >= lockInTimeSecs && !_isShooting)
                 {
                     StartCoroutine(OpenFire()); 
                 }
@@ -195,8 +195,8 @@ public class MachineGun : MonoBehaviour
             yield return new WaitForSeconds(delayBetweenRoundsSecs);
         }
         
-        _isShooting = false;
         _currLockingTime = 0;
+        _isShooting = false;
     }
 
 

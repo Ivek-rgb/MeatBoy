@@ -235,9 +235,9 @@ MonoBehaviour:
   defaultDistance: 10
   lockInTimeSecs: 3
   ultraSonicRadarSize: {x: 0.6, y: 0.6}
-  numberOfBurstRounds: 5
+  numberOfBurstRounds: 1
   delayBetweenRoundsSecs: 0.2
-  bulletSpeed: 30
+  bulletSpeed: 40
   casingForceMin: 2
   casingForceMax: 5
   rotationSpeedMin: 100
