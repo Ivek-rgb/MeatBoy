@@ -147,7 +147,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.21956219, y: -0.2569954}
+  m_ConnectedAnchor: {x: 0.21956217, y: -0.25699538}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7
@@ -168,7 +168,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.20745881, y: 0.27761996}
+  m_ConnectedAnchor: {x: 0.20745873, y: 0.27762005}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7
@@ -189,7 +189,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.044214003, y: 0.37577456}
+  m_ConnectedAnchor: {x: 0.044214033, y: 0.37577462}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7
@@ -309,7 +309,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.01593116, y: 0.33763945}
+  m_ConnectedAnchor: {x: 0.015931161, y: 0.33763942}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7
@@ -330,7 +330,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.023987398, y: -0.35394546}
+  m_ConnectedAnchor: {x: 0.0239874, y: -0.35394552}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7
@@ -351,7 +351,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.38171542, y: 0.357147}
+  m_ConnectedAnchor: {x: 0.38171542, y: 0.35714707}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7
@@ -669,7 +669,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.31667235, y: -0.0012547229}
+  m_ConnectedAnchor: {x: -0.31667235, y: -0.0012547825}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7
@@ -870,7 +870,11 @@ MonoBehaviour:
   hurtTrigger: {fileID: 7383133527319665788}
   hurtTriggerRadius: 0.38
   invincibilityFrameDurationSecs: 0.5
+<<<<<<< HEAD
   numberOfIframes: 10
+=======
+  numberOfIframes: 4
+>>>>>>> 7745f44b09aea4d3e09c4e5b3b09e4ffd40ce9b2
   disablePlayerInteractivity: 0
   downwardForceMultiplier: 1.0002
   umbrellaVisualQueue: {fileID: 4364335995864033687}
@@ -1239,7 +1243,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.028109934, y: -0.34542987}
+  m_ConnectedAnchor: {x: 0.028110053, y: -0.3454299}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7
@@ -1281,7 +1285,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.3014294, y: 0.35042465}
+  m_ConnectedAnchor: {x: -0.3014294, y: 0.3504246}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7
@@ -1443,7 +1447,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.31340578, y: -0.40443832}
+  m_ConnectedAnchor: {x: -0.31340578, y: -0.40443838}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7
@@ -1774,7 +1778,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.2522339, y: 0.23112378}
+  m_ConnectedAnchor: {x: 0.25223386, y: 0.23112382}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7
@@ -1795,7 +1799,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.06362331, y: -0.37123}
+  m_ConnectedAnchor: {x: 0.06362331, y: -0.37123007}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7
@@ -1946,7 +1950,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.2375587, y: 0.26347426}
+  m_ConnectedAnchor: {x: 0.23755872, y: 0.26347432}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7
@@ -2129,7 +2133,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.0521947, y: -0.33810624}
+  m_ConnectedAnchor: {x: 0.05219476, y: -0.33810624}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.7

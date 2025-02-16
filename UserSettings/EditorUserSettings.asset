@@ -6,12 +6,20 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
+<<<<<<< HEAD
       value: 5b0355050100595d5c595c7744745b44444f487275782234292a4f60b7b0366a
       flags: 0
     RecentlyUsedSceneGuid-1:
       value: 065350515006500b580a582011775c44464f1c722d7d7163292f1f6ae7b1633b
+=======
+      value: 5650555e04065d03585e587540250744474f40297a2a70332e79496bb0b1656e
+>>>>>>> 7745f44b09aea4d3e09c4e5b3b09e4ffd40ce9b2
+      flags: 0
+    RecentlyUsedSceneGuid-1:
+      value: 53555000000c59585b5a582640760e44174f1a7e2a7974662b2b4c63e1b96761
       flags: 0
     RecentlyUsedSceneGuid-2:
+<<<<<<< HEAD
       value: 5700575f5d060d0e5b5e0d2641715b44151540787c7022357c2d4966b2b5663d
       flags: 0
     RecentlyUsedSceneGuid-3:
@@ -25,12 +33,34 @@ EditorUserSettings:
       flags: 0
     RecentlyUsedSceneGuid-6:
       value: 5b00075053025a0c5e580d75437a5a4441151b297c292233792d4b60b5b2663e
+=======
+      value: 06505554550d5d5f080f097b47250e44124e497d742d77692e7a4f64e0b76c6e
+      flags: 0
+    RecentlyUsedSceneGuid-3:
+      value: 5b520d0503545b0d0c0c0a2715770748154f4d2c7d7d7e627a7d4a35b4e1646a
+      flags: 0
+    RecentlyUsedSceneGuid-4:
+      value: 5501520256030c595d57087214700744414e1e7e2d78703128791965bae16739
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 5605005057045f09540a0f7b46205a44124e48297a2c276875784930e4e6606c
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 5104555101010b0c5f5a5a2741770944134f417b2a2e23637b2c4a6bbbb76468
+>>>>>>> 7745f44b09aea4d3e09c4e5b3b09e4ffd40ce9b2
       flags: 0
     RecentlyUsedSceneGuid-7:
       value: 0155070551535c5d095a0871427b0844454e4e2b2979253574284a37e0b5616b
       flags: 0
     RecentlyUsedSceneGuid-8:
+<<<<<<< HEAD
       value: 5b520d0503545b0d0c0c0a2715770748154f4d2c7d7d7e627a7d4a35b4e1646a
+=======
+      value: 5106040001070d0d5d08552641745c44454f4a722d7f7e627e7d1e63b5b1656f
+      flags: 0
+    UnityEditor.ShaderGraph.Blackboard:
+      value: 18135939215a0a5004000b0e15254b524c030a3f2964643d120d1230e9e93a3fd6e826abbd2e2d293c4ead313b08042de6030a0afa240c0d020be94c4ba75e435d8715fa32c70d15d11612dacc11fee5d3c5d1fe9ab1bf968e93e2ffcbc3e7e2f0b3ffe0e8b0be9af8ffaeffff8e85dd8390e3949c8899daa7
+>>>>>>> 7745f44b09aea4d3e09c4e5b3b09e4ffd40ce9b2
       flags: 0
     RecentlyUsedSceneGuid-9:
       value: 0605520353575a5f5a5c5f7515215c44134f4d7b282d7564287e196bb2e46760
