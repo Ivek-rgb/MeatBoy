@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.Rendering.Universal;
 
 public class DoorWormhole : MonoBehaviour
 {
@@ -24,15 +26,23 @@ public class DoorWormhole : MonoBehaviour
     // proceed to another wormhole 
     public DoorWormhole anotherWormhole;
 
-    // will be used on determining fate when up is presed
-    public bool isExit = false;
 
     // damn what a nice (thread)Coroutine locking mechanism, I wonder what could go wrong using this??? --Bench
     private bool _coroutineLock = false;
     private readonly bool[] _coroutineActivated = {false, false};
 
     public float teleportationSicknessDuration = 3f;
-    private float _lastTeleport ;
+    private float _lastTeleport;
+    private LevelManager _levelManager;
+
+    [Header("For interdimensional travel")]
+    public string sceneTeleportName;
+    public bool lockLevels = false;  
+    public Light2D statusLightEmitter = null;
+    public SpriteRenderer lightSprite; 
+    private bool _canOpen = false; 
+    private bool _isLoadingScene = false;
+    public bool needsToClose = true; 
     
     void Start()
     {
@@ -46,6 +56,15 @@ public class DoorWormhole : MonoBehaviour
             _originalDoorPositionR = doorR.transform.position;
 
         _lastTeleport = teleportationSicknessDuration; 
+        
+        _levelManager = LevelManager.Instance;
+
+        if (_levelManager&& statusLightEmitter && lockLevels && lightSprite)
+        {
+            _canOpen = _levelManager.IsCompletedLevel(sceneTeleportName);
+            statusLightEmitter.color = _canOpen ? Color.green : Color.red;
+            lightSprite.color = _canOpen ? Color.green : Color.red; 
+        }
 
     }
     
@@ -109,6 +128,7 @@ public class DoorWormhole : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (lockLevels && !_canOpen) return; 
         if (other.CompareTag("Player") &&  !_coroutineActivated[0] )
         {
             StartCoroutine(OpenDoors());
@@ -119,6 +139,7 @@ public class DoorWormhole : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D other)
     {
+        if ((lockLevels && !_canOpen) || !needsToClose) return; 
         if (other.CompareTag("Player") && !_coroutineActivated[1] )
         {
             StartCoroutine(CloseDoors());
@@ -137,13 +158,20 @@ public class DoorWormhole : MonoBehaviour
             {
                 StartCoroutine(_gameManager.TeleportCharacter(anotherWormhole.transform.position));
                 _lastTeleport = 0; 
-            }else if (Input.GetAxis("Horizontal") > 0 && isExit)
+            }else if (Input.GetAxis("Vertical") > 0 && !_isLoadingScene)
             {
-                // here be exit script 
+                if (lockLevels && !_canOpen) return;
+
+                _isLoadingScene = true; 
+                
+                if(sceneTeleportName.Length > 0)
+                    _levelManager.LoadScene(sceneTeleportName);
+
             }
             
         }
 
-
     }
+    
+    
 }

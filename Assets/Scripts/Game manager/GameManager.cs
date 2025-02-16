@@ -35,7 +35,8 @@ public class GameManager : MonoBehaviour
     private bool _checkMade = true;
 
     public static GameManager Instance { get; private set; }
-
+    public string levelName = "default";
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
         }
         
         Instance = this;
+        
     }
 
     public Sprite OnPlayerSplatterBlood(GameObject bloodSplatterDecal)
@@ -85,6 +87,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void SetLives(int numOfLives = 3)
+    {
+        this.lives = numOfLives; 
+    }
+
     public void OnPlayerDeathExlpode()
     {
         LaunchAllGiblets();
@@ -111,7 +118,9 @@ public class GameManager : MonoBehaviour
         _prefabbedPlayer = Resources.Load<GameObject>("Prefabs/Player/Player");
         _storedBloodSprites = Resources.LoadAll<Sprite>("Sprites/Blood/blood-sprites");
         _bloodEmitter = Resources.Load<ParticleSystem>("Prefabs/BloodEmitters/BlodSplashFinal");
-        
+
+ 
+
     }
     
     public void LaunchAllGiblets()

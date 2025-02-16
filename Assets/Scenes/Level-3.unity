@@ -1414,7 +1414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8790203301737432400, guid: 61df6694b5876564aa2bfa42589e7468, type: 3}
       propertyPath: sceneTeleportName
-      value: Level-3
+      value: Level-2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3424,7 +3424,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   maxBloodDecalAmount: 100
-  levelName: Level-2
+  levelName: Level-3
 --- !u!1 &947318060
 GameObject:
   m_ObjectHideFlags: 0

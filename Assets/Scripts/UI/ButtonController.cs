@@ -12,6 +12,21 @@ public class ButtonController : MonoBehaviour
         _levelManager  = LevelManager.Instance;
     }
 
+    public void MainMenu()
+    {
+        _levelManager.MainMenuu();
+    }
+
+    public void ResumeGame()
+    {
+        _levelManager.ResumeGame();
+    }
+
+    public void RestartLevel()
+    {
+        _levelManager.RestartScene();
+    }
+
     public void LoadLevel()
     {
         _levelManager.LoadScene(loadLevelName);

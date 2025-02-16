@@ -48,6 +48,7 @@ namespace Player
         public Transform hurtTrigger;
         public float hurtTriggerRadius = 1f;
         private int _hurtLayerId;
+        private int _healingLayerId; 
         private bool _isInvincible;
         [Tooltip("Duration of a whole iframe - player changes color from white to normal")]
         public float invincibilityFrameDurationSecs = 0.3f;
@@ -74,6 +75,7 @@ namespace Player
             
             _groundLayerId = LayerMask.GetMask("Ground");
             _hurtLayerId = LayerMask.GetMask("Damage");
+            _healingLayerId = LayerMask.GetMask("Healing");
             
             _currentJumpCooldownTimestamp = Time.time * 1000;
             var parentBody = transform.parent;
@@ -115,7 +117,8 @@ namespace Player
             
             if (Input.GetKeyDown(KeyCode.LeftShift) && _canDash) StartCoroutine(Dash());
             if (IsGrounded()) _currentJumpsInRow = 0;
-            if (!_isInvincible && IsHurt()) StartCoroutine(OnCharacterTakeDamage());
+            if (!_isInvincible && IsHurt()) StartCoroutine(OnCharacterTakeDamage(1));
+            if(!_isInvincible && IsHealing()) StartCoroutine(OnCharacterTakeDamage(-1));
             
         }
 
@@ -158,17 +161,27 @@ namespace Player
         private bool IsGrounded() => groundCheck && Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, _groundLayerId);
         private bool IsHurt() => hurtTrigger && Physics2D.OverlapCircle(hurtTrigger.position, hurtTriggerRadius, _hurtLayerId);
 
-        private IEnumerator OnCharacterTakeDamage()
+        private bool IsHealing()
+        {
+            if (!hurtTrigger) return false; 
+            Collider2D possibleHeart = Physics2D.OverlapCircle(hurtTrigger.position, hurtTriggerRadius, _healingLayerId);
+            if (!possibleHeart) return false;
+            Destroy(possibleHeart.gameObject);
+            return true; 
+        }
+
+        private IEnumerator OnCharacterTakeDamage(int damageAmount)
         {
             
-            foreach (var rb in _bodyRigidbodies)
-            {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x * -5f, 3f);
-            }
+            if(damageAmount > 0)
+                foreach (var rb in _bodyRigidbodies)
+                {
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x * -5f, 3f);
+                }
 
             _isInvincible = true;
-            _gameManager.OnPlayerTakeDamage(1);
-           
+            _gameManager.OnPlayerTakeDamage(damageAmount);
+            
             for (int i = 0; i < numberOfIframes; i++)
             {
 
@@ -197,7 +210,7 @@ namespace Player
         {
             if (other.CompareTag("HurtTrigger") && !_isInvincible)
             {
-                StartCoroutine(OnCharacterTakeDamage()); 
+                StartCoroutine(OnCharacterTakeDamage(1)); 
             }
         }
 
