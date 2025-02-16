@@ -869,8 +869,8 @@ MonoBehaviour:
   trailRenderer: {fileID: 5181234539962942629}
   hurtTrigger: {fileID: 7383133527319665788}
   hurtTriggerRadius: 0.38
-  invincibilityFrameDurationSecs: 1
-  numberOfIframes: 1
+  invincibilityFrameDurationSecs: 0.5
+  numberOfIframes: 10
   disablePlayerInteractivity: 0
   downwardForceMultiplier: 1.0002
   umbrellaVisualQueue: {fileID: 4364335995864033687}
