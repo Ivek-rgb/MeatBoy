@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
         }
         
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public Sprite OnPlayerSplatterBlood(GameObject bloodSplatterDecal)

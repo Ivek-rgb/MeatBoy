@@ -86,16 +86,13 @@ namespace Player
             {
                 _normalSpriteColors.Add(spr.color);
             }
-
-            _gameManager = GameManager.Instance;
-            _gameManager.OnPlayerTakeDamage(0);
-
             
             if (umbrellaVisualQueue) umbrellaVisualQueue.enabled = false;
 
             _ceilingForCrouching = new GameObject("SoftBodyCrouchLimiter");
             BoxCollider2D col = _ceilingForCrouching.AddComponent<BoxCollider2D>();
-           
+            
+            _gameManager = GameManager.Instance;
 
         }
 
