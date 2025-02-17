@@ -14,8 +14,8 @@ public class LevelManager : MonoBehaviour
     public string currentSceneName;
     private HashSet<string> _completedLevels = new HashSet<string>();
     private int _deathCounter;
-    private AudioManager _currLevelAudioManager; 
-    
+    private AudioManager _currLevelAudioManager;
+    public float[] storedSoundValues = new []{0.2f, 0.1f}; 
     
     public static LevelManager Instance { get; private set; }
     
@@ -49,12 +49,6 @@ public class LevelManager : MonoBehaviour
         if (currentSceneName == "StartScreen" && !forced) return; 
         _isPaused = !_isPaused;
         Time.timeScale = _isPaused ? 0 : 1;
-        
-        if (_currLevelAudioManager)
-        {
-            if(_isPaused) _currLevelAudioManager.PauseMusic();
-            else _currLevelAudioManager.ContinueMusic();
-        }
 
         _pauseMenu.SetActive(_isPaused);
     }

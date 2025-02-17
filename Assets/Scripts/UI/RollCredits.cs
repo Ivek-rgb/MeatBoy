@@ -41,7 +41,7 @@ Ingame SFX:
 Hrvoje Renato Šokčić
 
 Story: 
-ChatGPT
+ChatGPT (Čedo)
 
 Special thanks: 
 Leo Znika
@@ -63,7 +63,7 @@ The end?
     {
         _textTransform.anchoredPosition += Vector2.up * (scrollSpeed * Time.deltaTime);
 
-        if (Input.anyKeyDown && !_isOver)
+        if (Input.GetKeyDown(KeyCode.Escape) && !_isOver)
         {
             _levelManager.LoadScene("StartScreen");
         }
