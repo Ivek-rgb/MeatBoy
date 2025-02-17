@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
     public string levelName = "default";
+    private LevelManager _levelManager;
+    private AudioManager _audioManager;
     
     private void Awake()
     {
@@ -68,7 +70,6 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerTakeDamage(int damageAmount)
     {
-
         lives -= damageAmount;
         if (damageAmount > 0)
         {
@@ -80,12 +81,15 @@ public class GameManager : MonoBehaviour
         {
             OnPlayerDeathExlpode();
             OnPlayerTakeDamage(-1);
+            _levelManager.IncrementNumberOfDeaths();
             StartCoroutine(ResurrectPlayerProcedure());
-        }
+        } else if(_audioManager && damageAmount  > 0) _audioManager.TakeDamage();
         
         onLivesChanged?.Invoke(lives);
-
     }
+
+
+  
 
     public void SetLives(int numOfLives = 3)
     {
@@ -114,12 +118,12 @@ public class GameManager : MonoBehaviour
             _gibletStorage[nameOfPocket].Add(prefab);
             
         }
-
+        
+        _levelManager = LevelManager.Instance;
         _prefabbedPlayer = Resources.Load<GameObject>("Prefabs/Player/Player");
         _storedBloodSprites = Resources.LoadAll<Sprite>("Sprites/Blood/blood-sprites");
         _bloodEmitter = Resources.Load<ParticleSystem>("Prefabs/BloodEmitters/BlodSplashFinal");
-
- 
+        _audioManager = FindFirstObjectByType<AudioManager>();
 
     }
     

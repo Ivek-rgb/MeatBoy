@@ -1414,7 +1414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8790203301737432400, guid: 61df6694b5876564aa2bfa42589e7468, type: 3}
       propertyPath: sceneTeleportName
-      value: Level-2
+      value: EndingScreen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

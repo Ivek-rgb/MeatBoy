@@ -69,6 +69,9 @@ namespace Player
         public Vector2 pressBoxOffsets = new Vector2(0f, 1f);
         private GameObject _ceilingForCrouching;
 
+        private AudioManager _audioManager; 
+        
+
         void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -95,6 +98,8 @@ namespace Player
             BoxCollider2D col = _ceilingForCrouching.AddComponent<BoxCollider2D>();
             
             _gameManager = GameManager.Instance;
+
+            _audioManager = FindFirstObjectByType<AudioManager>();
 
         }
 
@@ -173,6 +178,8 @@ namespace Player
         private IEnumerator OnCharacterTakeDamage(int damageAmount)
         {
             
+            if(_audioManager) _audioManager.Death();
+            
             if(damageAmount > 0)
                 foreach (var rb in _bodyRigidbodies)
                 {
@@ -221,6 +228,8 @@ namespace Player
 
         private void Jump()
         {
+            if(_audioManager) _audioManager.Jump();
+            
             foreach (var rb in _bodyRigidbodies)
             {
 
